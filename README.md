@@ -4,6 +4,9 @@ Native runtime agent for Fidelio Loyalty deployments.
 
 The agent is the local parent process for the installed product. It does not contain business logic from the API, Telegram bot, or admin web UI. Its job is to install, verify, start, stop, update, and recover the local runtime components.
 
+Shared product requirements and cross-project backlog live in the separate
+`fidelio-loyalty-docs` repository.
+
 ## Responsibilities
 
 - license validation before runtime startup;
