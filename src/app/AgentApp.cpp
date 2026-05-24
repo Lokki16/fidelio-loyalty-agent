@@ -88,11 +88,11 @@ int AgentApp::runForeground() {
 }
 
 int AgentApp::installService() {
-    return windowsService_.install("FidelioLoyaltyAgent") ? 0 : 2;
+    return serviceController_.install("FidelioLoyaltyAgent") ? 0 : 2;
 }
 
 int AgentApp::uninstallService() {
-    return windowsService_.uninstall("FidelioLoyaltyAgent") ? 0 : 2;
+    return serviceController_.uninstall("FidelioLoyaltyAgent") ? 0 : 2;
 }
 
 int AgentApp::printHelp() {

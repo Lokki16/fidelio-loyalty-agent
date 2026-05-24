@@ -1,6 +1,6 @@
 # Fidelio Loyalty Agent
 
-Native runtime agent for Fidelio Loyalty deployments on Windows.
+Native runtime agent for Fidelio Loyalty deployments.
 
 The agent is the local parent process for the installed product. It does not contain business logic from the API, Telegram bot, or admin web UI. Its job is to install, verify, start, stop, update, and recover the local runtime components.
 
@@ -13,7 +13,7 @@ The agent is the local parent process for the installed product. It does not con
 - update manifest checks;
 - staged download/update flow;
 - rollback boundary for failed updates;
-- Windows autostart/service integration.
+- autostart/service integration on supported host platforms.
 
 ## Workspace Role
 
@@ -35,7 +35,7 @@ include/fidelio/agent/
   integrity/       File checksum verification
   license/         License loading and validation boundary
   logging/         Small logging facade
-  platform/        Process and Windows service integration
+  platform/        Process and service integration
   state/           Runtime state manager
   update/          Update manifest and update orchestration
 
@@ -72,6 +72,14 @@ cmake --build build
 ctest --test-dir build --output-on-failure
 ```
 
+Linux shell:
+
+```bash
+cmake -S . -B build
+cmake --build build
+ctest --test-dir build --output-on-failure
+```
+
 ## Basic Commands
 
 ```powershell
@@ -81,7 +89,7 @@ ctest --test-dir build --output-on-failure
 .\build\fidelio-loyalty-agent.exe run
 ```
 
-Windows service commands are intentionally stubbed until the installer policy is finalized:
+Service commands are intentionally stubbed until the installer policy is finalized:
 
 ```powershell
 .\build\fidelio-loyalty-agent.exe install-service

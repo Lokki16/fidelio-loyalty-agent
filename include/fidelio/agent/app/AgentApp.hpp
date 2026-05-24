@@ -5,7 +5,7 @@
 #include "fidelio/agent/integrity/IntegrityChecker.hpp"
 #include "fidelio/agent/license/LicenseManager.hpp"
 #include "fidelio/agent/platform/ProcessSupervisor.hpp"
-#include "fidelio/agent/platform/WindowsService.hpp"
+#include "fidelio/agent/platform/ServiceController.hpp"
 #include "fidelio/agent/state/StateManager.hpp"
 #include "fidelio/agent/update/UpdateManager.hpp"
 
@@ -36,7 +36,7 @@ private:
     ProcessSupervisor processSupervisor_;
     ComponentManager componentManager_;
     UpdateManager updateManager_;
-    WindowsService windowsService_;
+    ServiceController serviceController_;
 };
 
 } // namespace fidelio::agent

@@ -20,7 +20,7 @@ add_library(fidelio_agent_core
     src/license/LicenseManager.cpp
     src/logging/Logger.cpp
     src/platform/ProcessSupervisor.cpp
-    src/platform/WindowsService.cpp
+    src/platform/ServiceController.cpp
     src/state/StateManager.cpp
     src/update/UpdateManager.cpp
 )
