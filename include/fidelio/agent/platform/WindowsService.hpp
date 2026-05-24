@@ -1,0 +1,13 @@
+#pragma once
+
+#include <string>
+
+namespace fidelio::agent {
+
+class WindowsService {
+public:
+    bool install(const std::string& serviceName);
+    bool uninstall(const std::string& serviceName);
+};
+
+} // namespace fidelio::agent

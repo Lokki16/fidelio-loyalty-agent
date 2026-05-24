@@ -1,0 +1,24 @@
+{
+  "productName": "Fidelio Loyalty",
+  "activeClient": "fidelio",
+  "statePath": "data/agent-state.json",
+  "licensePath": "license.json",
+  "updateManifestUrl": "https://example.com/fidelio-loyalty/manifest.json",
+  "components": [
+    {
+      "name": "backend",
+      "executable": "backend/Fidelio.Loyalty.Backend.exe",
+      "healthUrl": "http://127.0.0.1:8000/health"
+    },
+    {
+      "name": "telegram-bot",
+      "executable": "telegram-bot/Fidelio.Loyalty.TelegramBot.exe",
+      "healthUrl": ""
+    },
+    {
+      "name": "admin-web",
+      "executable": "",
+      "healthUrl": "http://127.0.0.1:8000/"
+    }
+  ]
+}
