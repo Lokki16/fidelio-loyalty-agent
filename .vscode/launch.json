@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Agent: debug with GDB",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/debug/fidelio-loyalty-agent",
+      "windows": {
+        "program": "${workspaceFolder}/build/debug/fidelio-loyalty-agent.exe"
+      },
+      "args": ["status"],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "cmake: build debug",
+      "MIMode": "gdb"
+    },
+    {
+      "name": "Agent: debug with Visual Studio debugger",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/debug/Debug/fidelio-loyalty-agent.exe",
+      "args": ["status"],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "cmake: build debug"
+    }
+  ]
+}

@@ -80,6 +80,14 @@ cmake --build build
 ctest --test-dir build --output-on-failure
 ```
 
+Preset-based flow for IDEs and CI:
+
+```bash
+cmake --preset debug
+cmake --build --preset debug
+ctest --preset debug
+```
+
 ## Basic Commands
 
 ```powershell
@@ -111,3 +119,12 @@ C:\Program Files\Fidelio Loyalty\
 ```
 
 The backend should serve the built admin web. The Telegram bot should talk to the backend through API calls. The agent supervises both runtime processes.
+
+## Cross-Platform Development
+
+The agent must build and debug on Windows and Linux. OS-specific service
+registration belongs behind `ServiceController`; the app layer should remain
+platform-neutral.
+
+VS Code task and launch files are committed under `.vscode/` and contain no
+machine-specific paths.
