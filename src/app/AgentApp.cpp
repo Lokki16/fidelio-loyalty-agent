@@ -102,8 +102,8 @@ int AgentApp::printHelp() {
     std::cout << "  verify            Validate license and component files\n";
     std::cout << "  check-updates     Check configured update manifest\n";
     std::cout << "  run               Verify and start runtime components\n";
-    std::cout << "  install-service   Register Windows service\n";
-    std::cout << "  uninstall-service Remove Windows service\n";
+    std::cout << "  install-service   Register local service\n";
+    std::cout << "  uninstall-service Remove local service\n";
     return 0;
 }
 
