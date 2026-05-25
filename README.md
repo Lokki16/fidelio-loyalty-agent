@@ -69,18 +69,18 @@ The state file is intentionally local runtime data and must not be committed.
 
 ## Build
 
+Windows:
+
 ```powershell
-cmake -S . -B build -G "MinGW Makefiles"
-cmake --build build
-ctest --test-dir build --output-on-failure
+.\scripts\windows\test.ps1
+.\scripts\windows\build.ps1
 ```
 
 Linux shell:
 
 ```bash
-cmake -S . -B build
-cmake --build build
-ctest --test-dir build --output-on-failure
+sh ./scripts/unix/test.sh
+sh ./scripts/unix/build.sh
 ```
 
 Preset-based flow for IDEs and CI:
@@ -93,11 +93,22 @@ ctest --preset debug
 
 ## Basic Commands
 
+Windows development command:
+
 ```powershell
-.\build\fidelio-loyalty-agent.exe status
-.\build\fidelio-loyalty-agent.exe verify
-.\build\fidelio-loyalty-agent.exe check-updates
-.\build\fidelio-loyalty-agent.exe run
+.\scripts\windows\dev.ps1
+.\scripts\windows\dev.ps1 verify
+.\scripts\windows\dev.ps1 check-updates
+.\scripts\windows\dev.ps1 run
+```
+
+Linux shell:
+
+```bash
+sh ./scripts/unix/dev.sh
+sh ./scripts/unix/dev.sh verify
+sh ./scripts/unix/dev.sh check-updates
+sh ./scripts/unix/dev.sh run
 ```
 
 Service commands are intentionally stubbed until the installer policy is finalized:
