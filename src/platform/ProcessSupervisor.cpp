@@ -3,28 +3,30 @@
 
 #include <filesystem>
 
-namespace fidelio::agent {
+namespace fidelio::agent
+{
+    ProcessStartResult ProcessSupervisor::startProcess(const std::string &name, const std::filesystem::path &executable)
+    {
+        if (!std::filesystem::exists(executable))
+        {
+            return ProcessStartResult{
+                .ok = false,
+                .status = ProcessStatus::Failed,
+                .message = "executable is missing: " + executable.string(),
+            };
+        }
 
-ProcessStartResult ProcessSupervisor::startProcess(const std::string& name, const std::filesystem::path& executable) {
-    if (!std::filesystem::exists(executable)) {
+        Logger::info("Process start requested for " + name + ": " + executable.string());
         return ProcessStartResult{
-            .ok = false,
-            .status = ProcessStatus::Failed,
-            .message = "executable is missing: " + executable.string(),
+            .ok = true,
+            .status = ProcessStatus::Running,
+            .message = "start requested",
         };
     }
 
-    Logger::info("Process start requested for " + name + ": " + executable.string());
-    return ProcessStartResult{
-        .ok = true,
-        .status = ProcessStatus::Running,
-        .message = "start requested",
-    };
+    bool ProcessSupervisor::stopProcess(const std::string &name)
+    {
+        Logger::info("Process stop requested for " + name);
+        return true;
+    }
 }
-
-bool ProcessSupervisor::stopProcess(const std::string& name) {
-    Logger::info("Process stop requested for " + name);
-    return true;
-}
-
-} // namespace fidelio::agent

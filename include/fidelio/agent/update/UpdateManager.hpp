@@ -4,23 +4,24 @@
 
 #include <string>
 
-namespace fidelio::agent {
+namespace fidelio::agent
+{
+    struct UpdateCheckResult
+    {
+        bool ok{false};
+        bool updateAvailable{false};
+        std::string message;
+    };
 
-struct UpdateCheckResult {
-    bool ok{false};
-    bool updateAvailable{false};
-    std::string message;
-};
+    class UpdateManager
+    {
+    public:
+        UpdateManager(std::string manifestUrl, StateManager &stateManager);
 
-class UpdateManager {
-public:
-    UpdateManager(std::string manifestUrl, StateManager& stateManager);
+        UpdateCheckResult checkForUpdates();
 
-    UpdateCheckResult checkForUpdates();
-
-private:
-    std::string manifestUrl_;
-    StateManager& stateManager_;
-};
-
-} // namespace fidelio::agent
+    private:
+        std::string manifestUrl_;
+        StateManager &stateManager_;
+    };
+}

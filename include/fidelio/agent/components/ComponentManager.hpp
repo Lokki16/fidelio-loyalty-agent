@@ -7,25 +7,25 @@
 
 #include <vector>
 
-namespace fidelio::agent {
+namespace fidelio::agent
+{
+    class ComponentManager
+    {
+    public:
+        ComponentManager(
+            std::vector<ComponentConfig> components,
+            IntegrityChecker &integrityChecker,
+            ProcessSupervisor &processSupervisor,
+            StateManager &stateManager);
 
-class ComponentManager {
-public:
-    ComponentManager(
-        std::vector<ComponentConfig> components,
-        IntegrityChecker& integrityChecker,
-        ProcessSupervisor& processSupervisor,
-        StateManager& stateManager);
+        bool verifyInstalledComponents();
+        void startRuntimeComponents();
+        void stopRuntimeComponents();
 
-    bool verifyInstalledComponents();
-    void startRuntimeComponents();
-    void stopRuntimeComponents();
-
-private:
-    std::vector<ComponentConfig> components_;
-    IntegrityChecker& integrityChecker_;
-    ProcessSupervisor& processSupervisor_;
-    StateManager& stateManager_;
-};
-
-} // namespace fidelio::agent
+    private:
+        std::vector<ComponentConfig> components_;
+        IntegrityChecker &integrityChecker_;
+        ProcessSupervisor &processSupervisor_;
+        StateManager &stateManager_;
+    };
+}

@@ -12,31 +12,31 @@
 #include <string>
 #include <vector>
 
-namespace fidelio::agent {
+namespace fidelio::agent
+{
+    class AgentApp
+    {
+    public:
+        explicit AgentApp(AgentConfig config);
 
-class AgentApp {
-public:
-    explicit AgentApp(AgentConfig config);
+        int run(const std::vector<std::string> &args);
 
-    int run(const std::vector<std::string>& args);
+    private:
+        int showStatus();
+        int verify();
+        int checkUpdates();
+        int runForeground();
+        int installService();
+        int uninstallService();
+        int printHelp();
 
-private:
-    int showStatus();
-    int verify();
-    int checkUpdates();
-    int runForeground();
-    int installService();
-    int uninstallService();
-    int printHelp();
-
-    AgentConfig config_;
-    StateManager stateManager_;
-    IntegrityChecker integrityChecker_;
-    LicenseManager licenseManager_;
-    ProcessSupervisor processSupervisor_;
-    ComponentManager componentManager_;
-    UpdateManager updateManager_;
-    ServiceController serviceController_;
-};
-
-} // namespace fidelio::agent
+        AgentConfig config_;
+        StateManager stateManager_;
+        IntegrityChecker integrityChecker_;
+        LicenseManager licenseManager_;
+        ProcessSupervisor processSupervisor_;
+        ComponentManager componentManager_;
+        UpdateManager updateManager_;
+        ServiceController serviceController_;
+    };
+}
